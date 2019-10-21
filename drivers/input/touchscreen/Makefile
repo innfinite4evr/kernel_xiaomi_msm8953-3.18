@@ -96,5 +96,7 @@ obj-$(CONFIG_TOUCHSCREEN_GT9XX)		+= gt9xx_mido/
 else
 obj-$(CONFIG_TOUCHSCREEN_GT9XX)		+= gt9xx/
 endif
+
+obj-$(CONFIG_TOUCHSCREEN_MSTAR)		+= mstar_drv_new/
 obj-$(CONFIG_TOUCHSCREEN_HIMAX_CHIPSET)	+= hxchipset/
 obj-$(CONFIG_TOUCHSCREEN_FTS)		+= focaltech_touch/
