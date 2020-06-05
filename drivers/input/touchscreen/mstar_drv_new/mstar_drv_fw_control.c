@@ -437,10 +437,10 @@ static void _DrvFwCtrlMsg22xxChangeVoltage(void)
     {
         nNewTrimValue = nNewTrimValue - 0x20;
     }
-    else
+/*    else
     {
         nNewTrimValue = nNewTrimValue;
-    }
+    }*/
     
     if ((nTempValue & 0x10) != 0x10)
     {
@@ -448,10 +448,10 @@ static void _DrvFwCtrlMsg22xxChangeVoltage(void)
         {
             nNewTrimValue = 0x0F;
         }
-        else
+/*        else
         {
             nNewTrimValue = nNewTrimValue;
-        }
+        }*/
     }
 
     RegSet16BitValue(0x1842, nNewTrimValue);
