@@ -202,7 +202,6 @@
 			<0xff 155>, /* sdc1_irq(0) */
 			<0xff 157>, /* sdc2_irq(0) */
 			<0xff 167>, /* bam_irq(0) */
-			<0xff 168>, /* by pass serial irq */
 			<0xff 170>, /* sdc1_pwr_cmd_irq */
 			<0xff 173>, /* o_wcss_apss_smd_hi */
 			<0xff 174>, /* o_wcss_apss_smd_med */
@@ -338,5 +337,23 @@
 		qcom,masters = "APSS", "MPSS", "PRONTO", "TZ", "LPASS";
 		qcom,master-stats-version = <2>;
 		qcom,master-offset = <4096>;
+	};
+
+	rpm_msg_ram: memory@0x200000 {
+		compatible = "qcom,rpm-msg-ram";
+		reg = <0x200000 0x1000>,
+			<0x290000 0x1000>;
+	};
+
+	rpm_code_ram: rpm-memory@0x60000 {
+		compatible = "qcom,rpm-code-ram";
+		reg = <0x60000 0x5000>;
+	};
+
+	qcom,system-stats@60140 {
+		compatible = "qcom,system-stats";
+		qcom,rpm-msg-ram = <&rpm_msg_ram>;
+		qcom,rpm-code-ram = <&rpm_code_ram>;
+		qcom,masters = "APSS", "MPSS", "PRONTO", "TZ", "LPASS";
 	};
 };
